@@ -16,14 +16,12 @@ const BlogContent = () => {
 
 	return (
 		<div>
-			<BlogHeader initialMessage={selectedText}  />
+			<BlogHeader initialMessage={selectedText} />
 
-			{/* BlogBody receives the AskAI handler */}
 			<BlogBody onAskAI={handleAskAI} />
 
 			<BlogFooter />
 
-			{/* Button to open assistant manually (optional) */}
 			<div className="fixed top-17 right-4">
 				<Button
 					variant="outline"
