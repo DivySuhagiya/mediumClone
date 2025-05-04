@@ -9,10 +9,23 @@ const BlogBody = ({ onAskAI }) => {
 	const [selectedText, setSelectedText] = useState("");
 
 	const paragraphs = [
-		"This is the third article in the series 'Web Performance Stuff for React Developers.'",
-		"In the previous articles, we learned the basics of performance metrics for measuring initial load, what CSR (Client-Side rendering) is, why it's so popular, and how to record, read and interpret the performance Flame Chart. We also learned two of the most significant downsides of Client-Side Rendering: it negatively affects the initial load and doesn't work in environments without JavaScript.",
-		"In the previous articles, we learned the basics of performance metrics for measuring initial load, what CSR (Client-Side rendering) is, why it's so popular, and how to record, read and interpret the performance Flame Chart. We also learned two of the most significant downsides of Client-Side Rendering: it negatively affects the initial load and doesn't work in environments without JavaScript.",
-		"In the previous articles, we learned the basics of performance metrics for measuring initial load, what CSR (Client-Side rendering) is, why it's so popular, and how to record, read and interpret the performance Flame Chart. We also learned two of the most significant downsides of Client-Side Rendering: it negatively affects the initial load and doesn't work in environments without JavaScript.",
+		{
+			heading: "Understanding Transfer Learning",
+			text: "Transfer learning is a powerful concept in machine learning where a model developed for one task is reused as the starting point for a model on a second task. It leverages pre-trained models—networks that have already been trained on large datasets and have learned to extract relevant features.This approach is particularly useful in domains like image classification, where training a deep convolutional neural network (CNN) from scratch is time-consuming and data-intensive. Instead of training a model from the ground up, you take a model that has already been trained on a large dataset (like ImageNet) and fine-tune it for your specific task—in our case, animal classification.",
+		},
+
+		{
+			heading: "Why ImageNet?",
+			text: "ImageNet is a massive dataset of over 14 million labeled images across more than 20,000 categories. It played a critical role in the development of modern deep learning models through the ImageNet Large Scale Visual Recognition Challenge (ILSVRC).",
+		},
+		{
+			heading: "How it works?",
+			text: "You load a pre-trained ImageNet model, remove its original classification layer, and add a new layer that matches your animal classes (e.g., cat, dog, elephant). You then train only the new layers using your animal dataset. For better accuracy, you can also unfreeze and fine-tune some of the deeper layers.",
+		},
+		{
+			heading: "Conclusion",
+			text: "In summary, transfer learning with ImageNet makes animal classification fast, efficient, and accessible—even for small datasets or limited resources.",
+		},
 	];
 
 	const processText = (text, paraIndex) => {
@@ -104,14 +117,9 @@ const BlogBody = ({ onAskAI }) => {
 
 	const handleAskAI = () => {
 		if (!selectedText) return;
-
-		// Here you would typically connect to your AI assistant
-		// This could be a context function, Redux action, or prop callback
 		if (onAskAI) {
 			onAskAI(selectedText);
 		}
-
-		// Alternatively, you could open a chat interface here
 		closePopup();
 	};
 
@@ -130,16 +138,18 @@ const BlogBody = ({ onAskAI }) => {
 				>
 					<img src="Animal_classification.jpeg" className="w-auto h-auto" />
 
-					{paragraphs.map((text, index) => (
-						<p
-							key={index}
-							className="mt-[2.14em] tracking-tight leading-8 text-xl mb-[-0.46em] break-words text-[#242424]"
-						>
-							{processText(text, index)}
-						</p>
+					{paragraphs.map((para, index) => (
+						<div key={index}>
+							{para.heading && (
+								<h2 className="text-2xl font-semibold mt-8 mb-2 text-[#1a1a1a]">
+									{para.heading}
+								</h2>
+							)}
+							<p className="mt-[20px] tracking-tight leading-8 text-xl mb-[-0.46em] break-words text-[#242424]">
+								{processText(para.text, index)}
+							</p>
+						</div>
 					))}
-
-					{/* ... keep the pre element the same ... */}
 
 					{showPopup && (
 						<div

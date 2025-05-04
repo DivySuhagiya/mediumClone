@@ -89,10 +89,12 @@ const BlogHeader = () => {
 					<div className="max-w-[680px] w-full ml-6">
 						<div className="mt-6" />
 						<h2 className="text-[40px] leading-[52px] tracking-tighter font-bold font-inter text-[#242424]">
-							What are 1-bit LLMs?
+							From Lions to Labradors: Classify Animals Smarter with Transfer
+							Learning
 						</h2>
 						<p className="text-[#6b6b6b] text-[20px] leading-7 tracking-tight mt-2 font-inter">
-							The Era of 1-bit LLMs with BitNet b1.58
+							Learn how transfer learning with ImageNet can simplify and
+							supercharge your animal image classification projects.
 						</p>
 
 						{/* Author Info */}

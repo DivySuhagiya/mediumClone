@@ -13,9 +13,9 @@ const BlogFooter = () => {
 					<div className="max-w-[680px] w-full ml-63 mr-63">
 						{/* tech stack */}
 						<div className="flex gap-2">
-							<TechBadge techName="React" />
-							<TechBadge techName="Next.js" />
-							<TechBadge techName="Tailwind CSS" />
+							<TechBadge techName="Machine Learning" />
+							<TechBadge techName="Transfer Learning" />
+							<TechBadge techName="Image Classification" />
 						</div>
 						{/* options */}
 						<div className="flex items-center pt-4 pb-4 mt-9 text-[#6b6b6b] text-sm">
